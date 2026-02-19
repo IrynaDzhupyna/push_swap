@@ -1,5 +1,6 @@
 # Push_swap
 
+## Description
 sort data in stack using a limited set of instructions, aiming to achieve the lowest possible number of actions.
 
 What we have:
@@ -46,3 +47,9 @@ can succeed with different averages:
 11500 operations
 	◦ 100 numbers in under 1300 operations and 500 numbers in under
 5500 operations
+
+### Choosing Data Type
+Linked List vs Array
+- how much space this data type take
+- how easy to mainpulate, how fast to access an element
+
