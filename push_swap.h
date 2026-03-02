@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:36:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/02 13:41:31 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/02 14:02:29 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,5 @@ typedef struct node
 }				l_node;
 
 char			**ft_split(char const *s, char c);
-static void ft_free_split(char **arr, size_t filled);
-static size_t	ft_word_len(char const *s, char c);
-size_t			ft_counter(char const *s, char c);
 
 #endif
