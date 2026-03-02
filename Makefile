@@ -6,16 +6,16 @@
 #    By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/23 15:17:51 by irdzhupy          #+#    #+#              #
-#    Updated: 2026/03/02 14:08:13 by irdzhupy         ###   ########.fr        #
+#    Updated: 2026/03/02 14:26:38 by irdzhupy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 LIBFTDIR = Libft
 LIBFT = ${LIBFTDIR}/libft.a
 
-SRCS = push_swap.c ft_split.c
+SRCS = push_swap.c Libft/ft_split.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -29,8 +29,7 @@ ${LIBFT}:
 	${MAKE} -C ${LIBFTDIR}
 
 ${NAME}: ${LIBFT} ${OBJS}
-	cp ${LIBFT} ${NAME}
-	ar -rcs ${NAME} ${OBJS}
+	${CC} ${FLAGS} ${OBJS} ${LIBFT} -o ${NAME}
 .c.o:
 	${CC} ${FLAGS} -c $< -o $@
 clean:
