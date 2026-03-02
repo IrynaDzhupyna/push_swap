@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 13:36:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/02 13:41:31 by irdzhupy         ###   ########.fr       */
+/*   Created: 2026/03/02 11:29:29 by irdzhupy          #+#    #+#             */
+/*   Updated: 2026/03/02 13:42:47 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stdio.h>
+#include "push_swap.h"
 
-typedef struct node
+/*typedef struct node
 {
 	int			number;
 	struct node	*next;
 }				l_node;
+*/
+int	main(int argc, char **argv)
+{
+	l_node	*list;
+	char	**s_temp;
 
-char			**ft_split(char const *s, char c);
-static void ft_free_split(char **arr, size_t filled);
-static size_t	ft_word_len(char const *s, char c);
-size_t			ft_counter(char const *s, char c);
-
-#endif
+	list = NULL;
+	s_temp = NULL;
+	if (argc < 2)
+		return (printf("Not enough arguments"), 1);
+	else if (argc == 2)
+		s_temp = ft_split(argv[1], ' ');
+	while (*s_temp)
+		printf("%s\n", *s_temp++);
+	//fill the stack
+	//atoi with int check
+}
