@@ -6,26 +6,20 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 11:29:29 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/02 15:58:31 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:44:00 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
 
-/*typedef struct node
-{
-	int			number;
-	struct node	*next;
-}				l_node;
-*/
 int	main(int argc, char **argv)
 {
 	l_node	*list;
 	l_node	*new;
 	char	**s_temp;
 	int	i;
-	int	num;
+	long	num;
 
 	list = NULL;
 	new = NULL;
@@ -39,12 +33,13 @@ int	main(int argc, char **argv)
 	{
 		while (argv[i])
 		{
-			num = ft_atoi(argv[i]);
-			//atoi_strict check in utils
-			new = ft_lstnew(i);
-
-
-
+			num = ft_atoi_strict(argv[i]);
+			if (num > INT_MIN || num < INT_MIN)
+				return (printf("Not an int"), 2);
+			printf("%li\n", num);
+			i++;
+		}
+	}
 	//fill the stack
-	//atoi with int check
+	return (0);
 }
