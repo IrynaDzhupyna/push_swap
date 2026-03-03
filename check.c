@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 17:40:19 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/03 17:59:08 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/03 18:12:58 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 //OK == return (1)
 int	parse_int_check(const char *s, int *int_out)
 {
+	int	i;
 	int	sign;
 	long	num;
 
+	i = 0;
 	sign = 1;
 	if (!s || !*s)
 		return (0);
@@ -26,7 +28,7 @@ int	parse_int_check(const char *s, int *int_out)
 			i++;
 		else if (s[i] == '+' || s[i] == '-')
 		{
-			if ('0' <= s[i + 1] && s[i + 1] == '9')
+			if ('0' <= s[i + 1] && s[i + 1] <= '9')
 			{
 				if (s[i] == '-')
 					sign = -1;
@@ -40,8 +42,8 @@ int	parse_int_check(const char *s, int *int_out)
 			num = 0;
 			while ('0' <= s[i] && s[i] <= '9')
 			{
-				if (INT_MIN < num && num < INT_MAX)
-					num = num * 10 + s[i];
+				if (INT_MIN < (num * 10 + (s[i] - '0')) && (num * 10 + (s[i] - '0')) < INT_MAX)
+					num = num * 10 + (s[i] - '0');
 				else
 					return (0);
 				i++;
