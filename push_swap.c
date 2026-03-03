@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 11:29:29 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/03 16:44:00 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:58:21 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int	main(int argc, char **argv)
 	{
 		while (argv[i])
 		{
+			if (!argv[i] || !*argv[i])
+				return (printf("argv is empty"));
 			num = ft_atoi_strict(argv[i]);
-			if (num > INT_MIN || num < INT_MIN)
+			if (num > INT_MAX && num < INT_MIN)
 				return (printf("Not an int"), 2);
 			printf("%li\n", num);
 			i++;

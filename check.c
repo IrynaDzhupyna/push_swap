@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 17:40:19 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/03 18:12:58 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/03 18:24:43 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	parse_int_check(const char *s, int *int_out)
 	int	i;
 	int	sign;
 	long	num;
+	long	limits;
 
 	i = 0;
 	sign = 1;
@@ -37,6 +38,12 @@ int	parse_int_check(const char *s, int *int_out)
 			else
 				return (0);
 		}
+		//before reading digits we need to check limits
+		//L means this num is long not int, 
+		if (sign == -1)
+			limits = -2147483648L;
+		else
+			limits = 2147483647L;
 		else if ('0' <= s[i] && s[i] <= '9')
 		{
 			num = 0;
