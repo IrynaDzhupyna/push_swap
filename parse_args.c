@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:37:28 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/04 15:18:00 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/04 15:29:45 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@ int	parse_int_check(const char *s, int *int_out)
 	return (1);
 }
 
-int	parse_args(int argc, char **argv, int **arr, int n)
+//allocate array of ints
+//convert each argv into int
+//store them in array
+//return the size
+int	parse_args(int argc, char **argv, int *arr, int *n)
 {
 	int	i;
 	int	j;
@@ -62,7 +66,10 @@ int	parse_args(int argc, char **argv, int **arr, int n)
 	if (argc < 2)
 		return (1);
 	else if (argc == 2)
+	{
+		//arr is *int split return **char
 		arr = ft_split(argv[1], ' ');
+	}
 	else
 	{
 		while (i < argc)
@@ -71,6 +78,7 @@ int	parse_args(int argc, char **argv, int **arr, int n)
 				return (printf("Invalid argument"), 1);
 			else
 			{
+				//parse_int_check returns 1 or 0, value stores in pointer
 				arr[j] = parse_int_check(argv[i], &n);
 				i++;
 				j++;

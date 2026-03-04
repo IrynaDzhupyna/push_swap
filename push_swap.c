@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 11:29:29 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/03 16:58:21 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/04 14:08:29 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 	l_node	*new;
 	char	**s_temp;
 	int	i;
-	long	num;
+	int	num;
+	int	value;
 
 	list = NULL;
 	new = NULL;
@@ -33,13 +34,14 @@ int	main(int argc, char **argv)
 	{
 		while (argv[i])
 		{
-			if (!argv[i] || !*argv[i])
-				return (printf("argv is empty"));
-			num = ft_atoi_strict(argv[i]);
-			if (num > INT_MAX && num < INT_MIN)
-				return (printf("Not an int"), 2);
-			printf("%li\n", num);
-			i++;
+			if (!(parse_int_check(argv[i], &value)))
+				return (printf("Invalid argument"));
+			else
+			{
+				num = parse_int_check(argv[i], &value);
+				printf("%i\n", num);
+				i++;
+			}
 		}
 	}
 	//fill the stack

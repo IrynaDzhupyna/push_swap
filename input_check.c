@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 17:40:19 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/04 12:43:41 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/04 14:02:52 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	parse_int_check(const char *s, int *int_out)
 	int	sign;
 	long	num;
 	long	limit;
+	long	digit;
 
 	i = 0;
 	sign = 1;
@@ -42,7 +43,8 @@ int	parse_int_check(const char *s, int *int_out)
 				limit = 2147483647L;
 			while ('0' <= s[i] && s[i] <= '9')
 			{
-				if (num > (limit - num) / 10)
+				digit = s[i] - 48;
+				if (num > (limit - digit) / 10)
 					return (0);
 				num = num * 10 + (s[i] - 48);
 				i++;
@@ -55,26 +57,26 @@ int	parse_int_check(const char *s, int *int_out)
 	*int_out = num;
 	return (1);
 }
-
+/*
 #include <stdio.h>
 
 int	main(int argc, char ** argv)
 {
 	int	i;
-	int	*int_out;
+	int	value;
 
 	if (argc < 2)
-		return (printf("Not enough arguments"));
+		return (printf("Not enough arguments"), 1);
+	i = 1;
 	while (argv[i])
 	{
-		if (!(parse_int_check(argv[i], int_out)))
+		if (!(parse_int_check(argv[i], &value)))
 			return (printf("Invalid argument"));
 		else
 		{
-			int_out = parse_int_check(argv[i], int_out);
-			printf("%i\n", int_out);
+			printf("%i\n", value);
 			i++;
 		}
 	}
 	return (0);
-}
+}*/

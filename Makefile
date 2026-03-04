@@ -6,7 +6,7 @@
 #    By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/23 15:17:51 by irdzhupy          #+#    #+#              #
-#    Updated: 2026/03/03 16:32:42 by irdzhupy         ###   ########.fr        #
+#    Updated: 2026/03/04 13:58:49 by irdzhupy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 LIBFTDIR = Libft
 LIBFT = ${LIBFTDIR}/libft.a
 
-SRCS = push_swap.c ft_atoi_strict.c Libft/ft_split.c
+SRCS = push_swap.c input_check.c Libft/ft_split.c
 
 OBJS = ${SRCS:.c=.o}
 

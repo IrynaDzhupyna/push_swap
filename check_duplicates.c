@@ -1,27 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check_duplicates.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 13:36:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/04 13:59:49 by irdzhupy         ###   ########.fr       */
+/*   Created: 2026/03/04 15:19:51 by irdzhupy          #+#    #+#             */
+/*   Updated: 2026/03/04 15:21:26 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <limits.h>
-
-typedef struct node
-{
-	int			number;
-	struct node	*next;
-}				l_node;
-
-char			**ft_split(char const *s, char c);
-int	parse_int_check(const char *s, int *int_out);
-
-#endif
+//
