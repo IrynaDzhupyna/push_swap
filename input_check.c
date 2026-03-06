@@ -57,26 +57,3 @@ int	parse_int_check(const char *s, int *int_out)
 	*int_out = num;
 	return (1);
 }
-/*
-#include <stdio.h>
-
-int	main(int argc, char ** argv)
-{
-	int	i;
-	int	value;
-
-	if (argc < 2)
-		return (printf("Not enough arguments"), 1);
-	i = 1;
-	while (argv[i])
-	{
-		if (!(parse_int_check(argv[i], &value)))
-			return (printf("Invalid argument"));
-		else
-		{
-			printf("%i\n", value);
-			i++;
-		}
-	}
-	return (0);
-}*/

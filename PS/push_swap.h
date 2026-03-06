@@ -3,25 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 13:36:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/06 16:35:36 by irdzhupy         ###   ########.fr       */
+/*   Created: 2026/03/06 19:03:48 by irdzhupy          #+#    #+#             */
+/*   Updated: 2026/03/06 19:47:04 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <limits.h>
+#include <stdio.h>
 
 typedef struct StackNode
 {
-	int			value;
-	struct StackNode	*next;
-}				s_node;
+    int value;
+    int index;
+    struct StackNode	*next;
+}	node;
 
-char			**ft_split(char const *s, char c);
-int	parse_int_check(const char *s, int *int_out);
+node	*ps_new_node(int *value, int index);
+void	ps_node_add_back(node **stack, node *new_node);
 
 #endif

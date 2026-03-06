@@ -6,10 +6,13 @@
 /*   By: irdzhupy <irdzhupy@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:37:28 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/04 15:29:45 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/05 12:07:38 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//validates && converts to int
+//returns 1 if OK
+//returns 0 if Error
 int	parse_int_check(const char *s, int *int_out)
 {
 	int		i;
@@ -51,39 +54,21 @@ int	parse_int_check(const char *s, int *int_out)
 	*int_out = num * sign;
 	return (1);
 }
-
+//takes raw str from argv, validate them, converts them into int, stores them in int *arr and returns that arr + length to main
 //allocate array of ints
 //convert each argv into int
 //store them in array
 //return the size
-int	parse_args(int argc, char **argv, int *arr, int *n)
+//
+//in main: arr == points to real allocated array, n == num of elements in arr
+int	validate_convert_store_args(int argc, char **argv, int **arr, int *n)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc < 2)
-		return (1);
-	else if (argc == 2)
+	if (argc == 2)
 	{
-		//arr is *int split return **char
-		arr = ft_split(argv[1], ' ');
-	}
-	else
-	{
-		while (i < argc)
-		{
-			if (!parse_int_check(argv[i], &n))
-				return (printf("Invalid argument"), 1);
-			else
-			{
-				//parse_int_check returns 1 or 0, value stores in pointer
-				arr[j] = parse_int_check(argv[i], &n);
-				i++;
-				j++;
-			}
-		}
-	}
-
+		*arr = ft_split(argv[n], ' ');
+	*n = argc - 1;
+	*arr = malloc(sizeof(int) * (*n));
+	if (!*arr)
+		return (0);
+		
 }
