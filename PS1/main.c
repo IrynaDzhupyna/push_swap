@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/09 17:08:05 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:40:58 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int check_duplicates(s_node *stack, int *num, int *index)
     current = stack;
     while (current)
     {
-        dprintf(1, "Value is %i and num is %i\n", current->value, *num);
+        dprintf(1, "Current value is %i and next num is %i\n", current->value, *num);
         if (current->value == *num)
             return (printf("Duplication found\n"), 0);
         printf("NO DUPLICATES YET\n");
@@ -109,7 +109,7 @@ int check_duplicates(s_node *stack, int *num, int *index)
     return (1);
 }
 
-int parse_args(int argc, char **argv, s_node *stack_a)
+int parse_args(int argc, char **argv, s_node **stack_a)
 {
     int i;
     int num;
@@ -117,20 +117,20 @@ int parse_args(int argc, char **argv, s_node *stack_a)
     s_node  *node;
 
     i = 1;
-    stack_a = NULL;
+    *stack_a = NULL;
     index = 0;
+    printf("num is %d\n", num);
     while (i < argc)
     {
+        printf("i is %d\n", i);
         if (get_int(argv[i], &num) == 0)
             return (printf("Problem in get_int\n"), 0);
-        printf("GETINT RAN\n");
-        if (check_duplicates(stack_a, &num, &index) == 0)
+        if (check_duplicates(*stack_a, &num, &index) == 0)
             return (printf("Problem in check_duplicates()\n"), 0);
-        printf("CHECK DUP RAN\n");
         node = new_node_create(&num, index);
-        node_add_back(&stack_a, node);
+        node_add_back(stack_a, node);
         i++;
-        printf("i is %d\n", i);
+        index++;
         printf("num is %d\n", num);
     }
     return (printf("Duplicates not found"), 1);
@@ -139,10 +139,23 @@ int parse_args(int argc, char **argv, s_node *stack_a)
 int main(int argc, char **argv)
 {
     s_node  *stack_a;
+    s_node  *temp;
+    int i;
     
+    i = 0;
+    stack_a = NULL;
     if (argc < 2)
-        return (printf("argc < 2"));
-    if (!parse_args(argc, argv, stack_a))
-        return (printf("Problem in parse_args"));
-    return (printf("All good"), 0);
+        return (printf("argc < 2\n"));
+    if (!parse_args(argc, argv, &stack_a))
+        return (printf("Problem in parse_args\n"));
+    printf("Before all is fine\n");
+    temp = stack_a;
+    while (temp)
+    {
+        printf("Node %d is %d\n", i, temp->value);
+        i++;
+        temp = temp->next;
+    }
+    // Free the entire list, not just the head
+    return (0);
 }
