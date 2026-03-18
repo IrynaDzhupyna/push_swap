@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:59 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 10:49:35 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:35:11 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void swap(s_node **stack_head)
     first->next = second->next;
     second->next = first;
     *stack_head = second;
-    print(*stack_head);
+    print_list(*stack_head);
 }

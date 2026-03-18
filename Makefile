@@ -10,33 +10,45 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Target executable
+NAME    := push_swap
+
+# Header
+HEADER  := push_swap.h
+
 # Compiler and flags
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
 
 # Source files
-SRCS    := main.c node_manipulations.c parse_args.c ft_split.c operations.c utils.c special_cases.c error.c swap.c push.c rotate.c reverse_rotate.c
+INCLUDES	:= -I.
+
+SRC_DIR		:= src
+OP_DIR		:= operations
+
+SRCS	= $(SRC_DIR)/main.c\
+		  $(SRC_DIR)/parse_args.c\
+		  $(SRC_DIR)/error.c\
+		  $(SRC_DIR)/node_manipulations.c\
+		  $(SRC_DIR)/utils.c\
+		  $(SRC_DIR)/ft_split.c\
+		  $(OP_DIR)/swap.c\
+		  $(OP_DIR)/push.c\
+		  $(OP_DIR)/rotate.c\
+		  $(OP_DIR)/reverse_rotate.c
+
 OBJS    := $(SRCS:.c=.o)
-
-# Header
-HEADER  := push_swap.h
-
-# Target executable
-NAME    := push_swap
 
 # Default rule
 all: $(NAME)
 
 # Link objects into executable
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
 
 # Pattern rule for compiling .c -> .o
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Phony targets
-.PHONY: all clean fclean re
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
@@ -45,3 +57,6 @@ fclean: clean
 	rm -f $(NAME) a.out
 
 re: fclean all
+
+# Phony targets
+.PHONY: all clean fclean re

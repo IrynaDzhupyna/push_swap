@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:51:47 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 10:52:18 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:35:24 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void reverse_rotate(s_node **stack_head)
     current->next = NULL;
     new_head->next = *stack_head;
     *stack_head = new_head;
-    print(*stack_head);
+    print_list(*stack_head);
 }

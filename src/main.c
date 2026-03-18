@@ -6,11 +6,27 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 10:45:16 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 12:35:07 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//check error messages before submitting
+//if argc == 2 - free(arr) 
+static int  str_only_spaces(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
+            return (0);
+        i++;
+    }
+    return (1);
+}
 
 int main(int argc, char **argv)
 {
@@ -22,17 +38,17 @@ int main(int argc, char **argv)
     i = 0;
     stack_a = NULL;
     stack_b = NULL;
-    if (argc < 2)
+    if (argc < 2 || str_only_spaces(argv[1]))
         return (error_exit("Not enough arguments\n"));
     else if (argc == 2)
-        arr = ft_split(argv[1], ' ');
+        arr = ft_split(argv[1], ' ');   
     else
         arr = argv;
     if (!parse_args(argc, arr, &stack_a))
         return (error_exit("Problem in parse_args\n"));
 
     printf("\nSTACK_A BEFORE:\n");
-    print(stack_a);
+    print_list(stack_a);
     
     printf("\nSTACK_A SWAPED\n");
     swap(&stack_a);

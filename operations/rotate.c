@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:51:10 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 10:51:36 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:35:18 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void rotate(s_node **stack_head)
     current->next = temp;
     temp->next = NULL;
     *stack_head = new_head;
-    print(*stack_head);
+    print_list(*stack_head);
 }
