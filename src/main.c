@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/12 17:35:31 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:45:16 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int main(int argc, char **argv)
 {
     s_node  *stack_a;
     s_node  *stack_b;
-    s_node  *temp;
     char    **arr;
     int i;
     
@@ -24,32 +23,27 @@ int main(int argc, char **argv)
     stack_a = NULL;
     stack_b = NULL;
     if (argc < 2)
-        return (printf("argc < 2\n"));
+        return (error_exit("Not enough arguments\n"));
     else if (argc == 2)
         arr = ft_split(argv[1], ' ');
     else
         arr = argv;
-    //maybe better to do parse_args separately because there will be 2 diff roads. argc==2 free(arr)
     if (!parse_args(argc, arr, &stack_a))
-        return (printf("Problem in parse_args\n"));
-    /*temp = stack_a;
-    while (temp)
-    {
-        printf("Node %d is %d\n", i, temp->value);
-        i++;
-        temp = temp->next;
-    }*/
-    printf("LETS SWAP\n");
+        return (error_exit("Problem in parse_args\n"));
+
+    printf("\nSTACK_A BEFORE:\n");
+    print(stack_a);
+    
+    printf("\nSTACK_A SWAPED\n");
     swap(&stack_a);
-    temp = stack_a;
-    while (temp)
-    {
-        printf("Node %d is %d\n", i, temp->value);
-        i++;
-        temp = temp->next;
-    }
-    // Free the entire list, not just the head
-    //if (argc == 2)
-    //  free(arr);
+    
+    printf("\nPUSH FROM A -> B");
+    push(&stack_b, &stack_a);
+
+    printf("\nROTATE STACK_A\n");
+    rotate(&stack_a);
+
+    printf("\nREVERSE ROTATE STACK_A\n");
+    reverse_rotate(&stack_a);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/12 17:32:49 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/18 10:47:03 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,19 @@ typedef struct node
 int parse_args(int argc, char **argv, s_node **stack_a);
 int get_int(char *s, int *n);
 int check_duplicates(s_node *stack_head, int *num);
+char    **ft_split(char const *s, char c);
+
 s_node  *new_node_create(int *num, int *index);
 void    node_add_back(s_node **stack, s_node *new_node);
-char	**ft_split(char const *s, char c);
-void    swap(s_node **stack_head);
 
+int     isEmpty(s_node *top);
+
+void    swap(s_node **stack_head);
+void    push(s_node **dst_head, s_node **src_head);
+void    rotate(s_node **stack_head);
+void    reverse_rotate(s_node **stack_head);
+
+int     error_exit(char *s);
+void    print_list(s_node *stack_head);
+int     node_counter(s_node *stack_head);
 #endif

@@ -15,7 +15,7 @@ CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
 
 # Source files
-SRCS    := main.c node.c parse_args.c ft_split.c operations.c
+SRCS    := main.c node_manipulations.c parse_args.c ft_split.c operations.c utils.c special_cases.c error.c swap.c push.c rotate.c reverse_rotate.c
 OBJS    := $(SRCS:.c=.o)
 
 # Header
