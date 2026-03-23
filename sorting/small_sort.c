@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 21:12:33 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 21:23:12 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,11 @@ void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
         if (!stack_is_sorted(*stack_head_a))
             sort_four(stack_head_a, stack_head_b);
     }
-    /*else if (size == 5)
-        sort_five(&stack_head_a, &stack_head_b);*/
+    else if (size == 5)
+    {
+        if (!stack_is_sorted(*stack_head_a))
+            sort_five(&stack_head_a, &stack_head_b);
+    }
 
     /*printf("\nSTACK A:\n");
     print_stack(*stack_head_a);
