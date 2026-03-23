@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/20 17:53:55 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 09:29:12 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ s_node  biggest_node(s_node **stack_head)
         current = current->next;
     max = current;
     return (*max);
+}
+
+s_node  smallest_node(s_node **stack_head)
+{
+    s_node  *current;
+    s_node  *min;
+
+    current = *stack_head;
+    while (current->value < current->next->value)
+        current = current->next;
+    min = current;
+    return (*min);
 }
 
 //delete print_stack
@@ -77,9 +89,25 @@ void    sort_three(s_node **stack_head)
 
 void    sort_four(s_node **stack_head)
 {
-    s_node  *min;
-    
-    min = NULL;
-    *min = find_min_node(stack_head);
-    printf("MIN: %d\n",min->value);   
+    s_node  *min_node;
+
+    min_node = smallest_node(stack_head);
+    while (*stack_head != min_node)
+        rotate(stack_head);
+    push(stack_head, &stack_head_b);
+    sort_three(stack_head);
+    push(&stack_head_b, stack_head);
 }
+
+void    sort_five(s_node **stack_head)
+{
+    s_node  *min_node;
+
+    min_node = smallest_node(stack_head);
+    while (*stack_head != min_node)
+        rotate(stack_head);
+    push(stack_head, &stack_head_b);
+    sort_four(stack_head);
+    push(&stack_head_b, stack_head);
+}
+
