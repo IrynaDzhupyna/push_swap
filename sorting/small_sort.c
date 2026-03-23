@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 18:23:55 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:32:32 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ s_node  *smallest_node(s_node *stack_head)
     s_node  *current;
 
     current = stack_head;
-    min = current;
+    min = stack_head;
     printf("\nBEGGINING SMALLEST NODE  IN SMALLEST %d\n", min->value);
-    while (current->next)
+    while (current)
     {
-        if (current->value > current->next->value)
-            current = current->next;
-        min = current;
+        if (current->value < min->value)
+            min = current;
+        current = current->next;
     }
     printf("\nSMALLEST NODE IN SMALLEST %d\n", min->value);
     return (min);
