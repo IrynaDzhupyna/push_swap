@@ -6,27 +6,29 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 18:32:32 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:10:45 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_node  *smallest_node(s_node *stack_head)
+s_node  *smallest_node(s_node *stack_head, int *index_smallest)
 {
     s_node  *min;
     s_node  *current;
 
     current = stack_head;
     min = stack_head;
-    printf("\nBEGGINING SMALLEST NODE  IN SMALLEST %d\n", min->value);
+    *index_smallest = 0;
+    //printf("\nBEGGINING SMALLEST NODE  IN SMALLEST %d\n", min->value);
     while (current)
     {
         if (current->value < min->value)
             min = current;
         current = current->next;
+        index_smallest++;
     }
-    printf("\nSMALLEST NODE IN SMALLEST %d\n", min->value);
+    //printf("\nSMALLEST NODE IN SMALLEST %d\n", min->value);
     return (min);
 }
 
@@ -63,37 +65,18 @@ void    sort_three(s_node **stack_head)
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b)
 {
     s_node  *min_node;
-    int i;
+    int index_smallest;
 
-    i = 0;
-    min_node = smallest_node(*stack_head_a);
-    printf("SMALLEST NODE in SORT_FOUR %d\n", min_node->value);
+    min_node = smallest_node(*stack_head_a, &index_smallest);
+    printf("INDEX OF SMALLEST IS %i\n", index_smallest);
     while (*stack_head_a != min_node)
     {
         rotate(stack_head_a);
         printf("+\n");
     }
     push(stack_head_b, stack_head_a);
-    printf("\nSTACK A AFTER PUSH:\n");
-    print_stack(*stack_head_a);
-    printf("\nSTACK B AFTER PUSH:\n");
-    print_stack(*stack_head_b);
     sort_three(stack_head_a);
-    
-    printf("STACK A AFTER SORT\n");
-    print_stack(*stack_head_a);
     push(stack_head_a, stack_head_b);
-    
-    /*printf("\nSTACK A:\n");
-    print_stack(*stack_head_a);
-    printf("\nSTACK B:\n");
-    print_stack(*stack_head_b);*/
-    /*if (!stack_is_sorted(*stack_head_a))
-    {
-        push(stack_head_a, stack_head_b);
-        sort_three(stack_head_a);
-        push(stack_head_b, stack_head_a);  
-    }*/
 }
 
 void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
@@ -101,11 +84,20 @@ void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
     if (size < 2)
         return ;
     else if (size == 2)
-        swap(stack_head_a);
+    {
+        if (!stack_is_sorted(*stack_head_a))
+            swap(stack_head_a);   
+    }
     else if (size == 3)
-        sort_three(stack_head_a);
+    {
+        if (!stack_is_sorted(*stack_head_a))
+            sort_three(stack_head_a);
+    }
     else if (size == 4)
-        sort_four(stack_head_a, stack_head_b);
+    {
+        if (!stack_is_sorted(*stack_head_a))
+            sort_four(stack_head_a, stack_head_b);
+    }
     /*else if (size == 5)
         sort_five(&stack_head_a, &stack_head_b);*/
 

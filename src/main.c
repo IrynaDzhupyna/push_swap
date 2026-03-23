@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 16:16:40 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:12:31 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int main(int argc, char **argv)
     i = 0;
     stack_a = NULL;
     stack_b = NULL;
-    printf("Stack Beginning\n");
-    print_stack(stack_a);
     if (argc < 2 || str_only_spaces(argv[1]))
         return (error_exit("Not enough arguments\n"));
     else if (argc == 2)
@@ -51,17 +49,15 @@ int main(int argc, char **argv)
         return (error_exit("Problem in parse_args\n"));
     if (stack_is_sorted(stack_a))
         return (free_stack(stack_a), 0);
-        
-    printf("Stack Un - Sorted is \n");
-    print_stack(stack_a);
     
     stack_size = node_counter(stack_a);
-    printf("N of Nodes is: %i\n", stack_size);
     if (stack_size <= 5)
     {
-        small_sort(stack_a, stack_b, stack_size);
+        small_sort(&stack_a, &stack_b, stack_size);
     }   
     printf("\nFINAL STACK A IS:\n");
-    print_stack(stack_a);       
+    print_stack(stack_a);
+    printf("\nFINAL STACK B IS:\n");
+    print_stack(stack_b);  
     return (0);
 }

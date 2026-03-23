@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 12:35:59 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:14:41 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ s_node  *new_node_create(int *num, int *index);
 void    node_add_back(s_node **stack, s_node *new_node);
 int     node_counter(s_node *stack_head);
 s_node  biggest_node(s_node **stack_head);
-s_node  *smallest_node(s_node **stack_head);
+s_node  *smallest_node(s_node *stack_head, int *index_smallest);
 s_node  find_min_node(s_node **stack_head);
 
 int     stack_isEmpty(s_node *top);
 int     stack_is_sorted(s_node *stack_head);
 void    free_stack(s_node *stack_head);
 
-void    small_sort(s_node *stack_head_a, s_node *stack_head_b, int size);
+void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 
 void    sort_three(s_node **stack_head__a);
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b);
