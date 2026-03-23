@@ -6,9 +6,10 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 21:41:44 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 21:45:59 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -122,6 +123,33 @@ void    sort_four(s_node **stack_head_a, s_node **stack_head_b)
     int index_smallest;
     
 }*/
+void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
+{
+	s_node	*min_node;
+	int		index_smallest;
+
+	min_node = smallest_node(*stack_head_a, &index_smallest);
+	while (*stack_head_a != min_node)
+	{
+		if (index_smallest <= 2)
+			rotate(stack_head_a);
+		else
+			reverse_rotate(stack_head_a);
+	}
+	push(stack_head_b, stack_head_a);
+	min_node = smallest_node(*stack_head_a, &index_smallest);
+	while (*stack_head_a != min_node)
+	{
+		if (index_smallest <= 1)
+			rotate(stack_head_a);
+		else
+			reverse_rotate(stack_head_a);
+	}
+	push(stack_head_b, stack_head_a);
+	sort_three(stack_head_a);
+	push(stack_head_a, stack_head_b);
+	push(stack_head_a, stack_head_b);
+}
 
 void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
 {
