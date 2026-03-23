@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 19:10:45 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 21:12:33 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ s_node  *smallest_node(s_node *stack_head, int *index_smallest)
 }
 
 //doesn't work with some negative some positive
-void    sort_three(s_node **stack_head)
+/*void    sort_three(s_node **stack_head)
 {
     s_node  *first;
     s_node  *second;
@@ -43,6 +43,9 @@ void    sort_three(s_node **stack_head)
     second = first->next;
     third = second->next;
     
+    if (stack_is_sorted(*stack_head))
+        return ;
+        
     if ((first->value > second->value) && (first->value > third->value))
     {
         rotate(stack_head);
@@ -57,6 +60,37 @@ void    sort_three(s_node **stack_head)
     }
     else
         swap(stack_head);
+}*/
+
+void	sort_three(s_node **stack_head)
+{
+	s_node	*first;
+	s_node	*second;
+	s_node	*third;
+
+	if (!stack_head || !*stack_head || !(*stack_head)->next || !(*stack_head)->next->next)
+		return ;
+	first = *stack_head;
+	second = first->next;
+	third = second->next;
+	if (first->value < second->value && second->value < third->value)
+		return ;
+	if (first->value > second->value && second->value < third->value && first->value < third->value)
+		swap(stack_head);
+	else if (first->value > second->value && second->value > third->value)
+	{ 
+        swap(stack_head);
+        reverse_rotate(stack_head);
+    }
+	else if (first->value > second->value && second->value < third->value && first->value > third->value)
+		rotate(stack_head);
+	else if (first->value < second->value && second->value > third->value && first->value < third->value)
+	{ 
+        swap(stack_head);
+        rotate(stack_head);
+    }
+	else
+		reverse_rotate(stack_head);
 }
 
 
