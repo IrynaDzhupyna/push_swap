@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 18:12:31 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 20:31:58 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int main(int argc, char **argv)
     s_node  *stack_a;
     s_node  *stack_b;
     char    **arr;
-    int     i;
     int     stack_size;
     
-    i = 0;
     stack_a = NULL;
     stack_b = NULL;
     if (argc < 2 || str_only_spaces(argv[1]))
