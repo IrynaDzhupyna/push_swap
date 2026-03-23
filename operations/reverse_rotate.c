@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:51:47 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 15:47:58 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 19:21:20 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ rra (reverse rotate a)|| rrb (reverse rotate b)
 void reverse_rotate(s_node **stack_head)
 {
     s_node *current;
-    s_node *last;
     s_node *new_head;
 
     current = *stack_head;
@@ -28,7 +27,6 @@ void reverse_rotate(s_node **stack_head)
     {
         current = current->next;
     }
-    last = current;
     new_head = current->next;
     current->next = NULL;
     new_head->next = *stack_head;
