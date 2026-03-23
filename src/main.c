@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 12:35:07 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 16:16:40 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,14 @@ int main(int argc, char **argv)
     s_node  *stack_a;
     s_node  *stack_b;
     char    **arr;
-    int i;
+    int     i;
+    int     stack_size;
     
     i = 0;
     stack_a = NULL;
     stack_b = NULL;
+    printf("Stack Beginning\n");
+    print_stack(stack_a);
     if (argc < 2 || str_only_spaces(argv[1]))
         return (error_exit("Not enough arguments\n"));
     else if (argc == 2)
@@ -46,20 +49,19 @@ int main(int argc, char **argv)
         arr = argv;
     if (!parse_args(argc, arr, &stack_a))
         return (error_exit("Problem in parse_args\n"));
-
-    printf("\nSTACK_A BEFORE:\n");
-    print_list(stack_a);
+    if (stack_is_sorted(stack_a))
+        return (free_stack(stack_a), 0);
+        
+    printf("Stack Un - Sorted is \n");
+    print_stack(stack_a);
     
-    printf("\nSTACK_A SWAPED\n");
-    swap(&stack_a);
-    
-    printf("\nPUSH FROM A -> B");
-    push(&stack_b, &stack_a);
-
-    printf("\nROTATE STACK_A\n");
-    rotate(&stack_a);
-
-    printf("\nREVERSE ROTATE STACK_A\n");
-    reverse_rotate(&stack_a);
+    stack_size = node_counter(stack_a);
+    printf("N of Nodes is: %i\n", stack_size);
+    if (stack_size <= 5)
+    {
+        small_sort(stack_a, stack_b, stack_size);
+    }   
+    printf("\nFINAL STACK A IS:\n");
+    print_stack(stack_a);       
     return (0);
 }

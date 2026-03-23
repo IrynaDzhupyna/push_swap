@@ -25,17 +25,20 @@ INCLUDES	:= -I.
 
 SRC_DIR		:= src
 OP_DIR		:= operations
+ALG_DIR		:= sorting
 
 SRCS	= $(SRC_DIR)/main.c\
 		  $(SRC_DIR)/parse_args.c\
 		  $(SRC_DIR)/error.c\
 		  $(SRC_DIR)/node_manipulations.c\
+		  $(SRC_DIR)/stack.c\
 		  $(SRC_DIR)/utils.c\
 		  $(SRC_DIR)/ft_split.c\
 		  $(OP_DIR)/swap.c\
 		  $(OP_DIR)/push.c\
 		  $(OP_DIR)/rotate.c\
-		  $(OP_DIR)/reverse_rotate.c
+		  $(OP_DIR)/reverse_rotate.c\
+		  $(ALG_DIR)/small_sort.c
 
 OBJS    := $(SRCS:.c=.o)
 

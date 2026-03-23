@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:49:52 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 11:35:36 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/23 15:48:08 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,4 @@ void push(s_node **dst_head, s_node **src_head)
     temp->next = *dst_head;
     *dst_head = temp;
     *src_head = new_head;
-    printf("\nSTACK_B IS NOW:\n");
-    print_list(*dst_head);
-    printf("\nSTACK_A IS NOW:\n");
-    print_list(*src_head);
 }
