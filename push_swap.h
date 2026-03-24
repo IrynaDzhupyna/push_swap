@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 14:48:31 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 15:57:33 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 void    sort_three(s_node **stack_head__a);
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b);
 void	sort_five(s_node **stack_head_a, s_node **stack_head_b);
+
+void    pa(s_node **stack_head_a, s_node **stack_head_b);
+void    pb(s_node **stack_head_a, s_node **stack_head_b);
 
 void    swap(s_node **stack_head);
 void    push(s_node **dst_head, s_node **src_head);
