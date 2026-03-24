@@ -6,13 +6,13 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:05:42 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 19:14:32 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:04:35 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_node  *new_node_create(int *num, int *index)
+s_node  *new_node_create(int *num)
 {
     s_node  *new_node;
     
@@ -20,7 +20,7 @@ s_node  *new_node_create(int *num, int *index)
     if (!new_node)
         return (NULL);
     new_node->value = *num;
-    new_node->index = *index;
+    new_node->index = 0;
     new_node->next = NULL;
     new_node->prev = NULL;
     return (new_node);
@@ -57,4 +57,35 @@ int     node_counter(s_node *stack_head)
         i++;
     }
     return (i);
+}
+
+int get_node_position(s_node *stack_head, s_node *target_node)
+{
+    int i;
+
+    i = 0;
+    while (stack_head)
+    {
+        if (stack_head == target_node)
+            return (i);
+        stack_head = stack_head->next;
+        i++;
+    }
+    return (-1);
+}
+
+s_node  *smallest_node(s_node *stack_head)
+{
+    s_node  *min;
+    s_node  *current;
+
+    current = stack_head;
+    min = stack_head;
+    while (current)
+    {
+        if (current->value < min->value)
+            min = current;
+        current = current->next;
+    }
+    return (min);
 }

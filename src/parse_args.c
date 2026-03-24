@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 10:08:57 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 11:42:35 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:05:01 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int get_int(char *s, int *n)
     return (1);
 }
 
-int check_duplicates(s_node *stack_head,int *num)
+int check_duplicates(s_node *stack_head, int *num)
 {
     s_node  *current;
     
@@ -86,7 +86,7 @@ int parse_args(int argc, char **arr, s_node **stack_a)
             return (printf("Problem in get_int\n"), 0);
         if (check_duplicates(*stack_a, &num) == 0)
             return (printf("Problem in check_duplicates()\n"), 0);
-        node = new_node_create(&num, &index);
+        node = new_node_create(&num);
         node_add_back(stack_a, node);
         i++;
         index++;

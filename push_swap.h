@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 19:14:41 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:04:42 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int     get_int(char *s, int *n);
 int     check_duplicates(s_node *stack_head, int *num);
 char    **ft_split(char const *s, char c);
 
-s_node  *new_node_create(int *num, int *index);
+s_node  *new_node_create(int *num);
 void    node_add_back(s_node **stack, s_node *new_node);
 int     node_counter(s_node *stack_head);
-s_node  biggest_node(s_node **stack_head);
-s_node  *smallest_node(s_node *stack_head, int *index_smallest);
-s_node  find_min_node(s_node **stack_head);
+//s_node  biggest_node(s_node **stack_head);
+s_node  *smallest_node(s_node *stack_head);
+int get_node_position(s_node *stack_head, s_node *target_node);
 
 int     stack_isEmpty(s_node *top);
 int     stack_is_sorted(s_node *stack_head);
@@ -46,6 +46,7 @@ void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 
 void    sort_three(s_node **stack_head__a);
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b);
+void	sort_five(s_node **stack_head_a, s_node **stack_head_b);
 
 void    swap(s_node **stack_head);
 void    push(s_node **dst_head, s_node **src_head);
