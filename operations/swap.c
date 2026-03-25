@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:48:59 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 17:13:06 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:03:23 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,29 @@ void swap(s_node **stack_head)
     first->next = second->next;
     second->next = first;
     *stack_head = second;
+}
+
+void    sa(s_node **stack_head_a)
+{
+    if (!*stack_head_a)
+        return ;
+    swap(stack_head_a);
+    write(1, "sa\n", 3);
+}
+
+void    sb(s_node **stack_head_b)
+{
+    if (!*stack_head_b)
+        return ;
+    swap(stack_head_b);
+    write(1, "sb\n", 3);
+}
+
+void    ss(s_node **stack_head_a, s_node **stack_head_b)
+{
+    if (!*stack_head_a || !*stack_head_b)
+        return ;
+    swap(stack_head_a);
+    swap(stack_head_b);
+    write(1, "ss\n", 3);
 }

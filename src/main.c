@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 14:55:27 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:10:23 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
         small_sort(&stack_a, &stack_b, stack_size);
     }
     else
-        big_sort(&stack_a, &stack_b);
+        big_sort(&stack_a, &stack_b, stack_size );
     printf("\nFINAL STACK A IS:\n");
     print_stack(stack_a);
     printf("\nFINAL STACK B IS:\n");

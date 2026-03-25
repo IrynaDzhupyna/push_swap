@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 10:08:57 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 14:05:01 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:11:08 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int parse_args(int argc, char **arr, s_node **stack_a)
 {
     int i;
     int num;
-    int index;
     s_node  *node;
 
     if (argc == 2)
@@ -79,7 +78,6 @@ int parse_args(int argc, char **arr, s_node **stack_a)
     else
         i = 1;
     *stack_a = NULL;
-    index = 0;
     while (arr[i])
     {
         if (get_int(arr[i], &num) == 0)
@@ -89,7 +87,6 @@ int parse_args(int argc, char **arr, s_node **stack_a)
         node = new_node_create(&num);
         node_add_back(stack_a, node);
         i++;
-        index++;
     }
     return (1);
 }

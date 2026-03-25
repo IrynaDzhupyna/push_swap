@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 14:46:32 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:15:17 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void    find_push_smallest(s_node **stack_head_a, s_node **stack_head_b)
     while (*stack_head_a != min_node)
     {
         if (index_smallest <= 2)
-            rotate(stack_head_a);
+            ra(stack_head_a);
         else
-            reverse_rotate(stack_head_a);
+            rra(stack_head_a);
     }
-    push(stack_head_b, stack_head_a);
+    pa(stack_head_b, stack_head_a);
 }
 
 void	sort_three(s_node **stack_head)
@@ -44,18 +44,18 @@ void	sort_three(s_node **stack_head)
 	if (first->value < second->value && second->value < third->value)
 		return ;
 	if (first->value > second->value && second->value < third->value && first->value < third->value)
-		swap(stack_head);
+		sa(stack_head);
 	else if (first->value > second->value && second->value > third->value)
 	{ 
-        swap(stack_head);
-        reverse_rotate(stack_head);
+        sa(stack_head);
+        rra(stack_head);
     }
 	else if (first->value > second->value && second->value < third->value && first->value > third->value)
-		rotate(stack_head);
+		ra(stack_head);
 	else if (first->value < second->value && second->value > third->value && first->value < third->value)
 	{ 
-        swap(stack_head);
-        rotate(stack_head);
+        sa(stack_head);
+        ra(stack_head);
     }
 	else
 		reverse_rotate(stack_head);
@@ -65,7 +65,7 @@ void    sort_four(s_node **stack_head_a, s_node **stack_head_b)
 {   
     find_push_smallest(stack_head_a, stack_head_b);
     sort_three(stack_head_a);
-    push(stack_head_a, stack_head_b);
+    pa(stack_head_b, stack_head_a);
 }
 
 void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
@@ -73,8 +73,8 @@ void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
     find_push_smallest(stack_head_a, stack_head_b);
     find_push_smallest(stack_head_a, stack_head_b);
 	sort_three(stack_head_a);
-	push(stack_head_a, stack_head_b);
-	push(stack_head_a, stack_head_b);
+	pa(stack_head_b, stack_head_a);
+	pa(stack_head_b, stack_head_a);
 }
 
 /*void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
@@ -108,7 +108,7 @@ void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
         if (size < 2)
         return ;
     else if (size == 2)
-            swap(stack_head_a);   
+            sa(stack_head_a);   
     else if (size == 3)
             sort_three(stack_head_a);
     else if (size == 4)

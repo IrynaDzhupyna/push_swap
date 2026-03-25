@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:51:10 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/23 15:47:48 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:03:44 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,29 @@ void rotate(s_node **stack_head)
     current->next = temp;
     temp->next = NULL;
     *stack_head = new_head;
+}
+
+void    ra(s_node **stack_head_a)
+{
+    if (!*stack_head_a)
+        return ;
+    rotate(stack_head_a);
+    write(1, "ra\n", 3);
+}
+
+void    rb(s_node **stack_head_b)
+{
+    if (!*stack_head_b)
+        return ;
+    rotate(stack_head_b);
+    write(1, "rb\n", 3);
+}
+
+void    rr(s_node **stack_head_a, s_node **stack_head_b)
+{
+    if (!*stack_head_a || !*stack_head_b)
+        return ;
+    rotate(stack_head_a);
+    rotate(stack_head_b);
+    write(1, "rr\n", 3);
 }

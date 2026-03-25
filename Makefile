@@ -38,7 +38,8 @@ SRCS	= $(SRC_DIR)/main.c\
 		  $(OP_DIR)/push.c\
 		  $(OP_DIR)/rotate.c\
 		  $(OP_DIR)/reverse_rotate.c\
-		  $(ALG_DIR)/small_sort.c
+		  $(ALG_DIR)/small_sort.c\
+		  $(ALG_DIR)/big_sort.c
 
 OBJS    := $(SRCS:.c=.o)
 

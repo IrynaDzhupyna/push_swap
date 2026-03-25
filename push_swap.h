@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 15:57:33 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:09:23 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,25 @@ int     stack_is_sorted(s_node *stack_head);
 void    free_stack(s_node *stack_head);
 
 void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
+void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 
 void    sort_three(s_node **stack_head__a);
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b);
 void	sort_five(s_node **stack_head_a, s_node **stack_head_b);
 
+//swap
+void    sa(s_node **stack_head_a);
+void    sb(s_node **stack_head_b);
+void    ss(s_node **stack_head_a, s_node **stack_head_b);
+//rotate
+void    ra(s_node **stack_head_a);
+void    rb(s_node **stack_head_b);
+void    rr(s_node **stack_head_a, s_node **stack_head_b);
+//reverse rotate
+void    rra(s_node **stack_head_a);
+void    rrb(s_node **stack_head_b);
+void    rrr(s_node **stack_head_a, s_node **stack_head_b);
+//push
 void    pa(s_node **stack_head_a, s_node **stack_head_b);
 void    pb(s_node **stack_head_a, s_node **stack_head_b);
 
