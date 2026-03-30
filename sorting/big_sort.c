@@ -25,8 +25,11 @@ void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
                 pb(stack_head_a, stack_head_b);
             j++;
         }
+        //min_node
         while (*stack_head_b != NULL)
-            pa(stack_head_b, stack_head_a);
+        {
+            pa(stack_head_a, stack_head_b);
+        }
         i++;
     }
 }

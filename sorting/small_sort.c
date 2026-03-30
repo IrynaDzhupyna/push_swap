@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 18:15:17 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/03/25 12:49:29 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    sort_four(s_node **stack_head_a, s_node **stack_head_b)
 {   
     find_push_smallest(stack_head_a, stack_head_b);
     sort_three(stack_head_a);
-    pa(stack_head_b, stack_head_a);
+    pa(stack_head_a, stack_head_b);
 }
 
 void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
@@ -73,8 +73,8 @@ void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
     find_push_smallest(stack_head_a, stack_head_b);
     find_push_smallest(stack_head_a, stack_head_b);
 	sort_three(stack_head_a);
-	pa(stack_head_b, stack_head_a);
-	pa(stack_head_b, stack_head_a);
+	pa(stack_head_a, stack_head_b);
+	pa(stack_head_a, stack_head_b);
 }
 
 /*void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
