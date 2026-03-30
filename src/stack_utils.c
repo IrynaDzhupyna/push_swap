@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 11:57:49 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 13:33:34 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/30 13:44:04 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,30 @@ void    free_stack(s_node *stack_head)
     free(stack_head);
 }
 
-void    set_indexes(s_node *stack_head)
+int    set_indexes(s_node *stack_head)
 {
+    int i;
+    int stack_size;
     s_node  *next_to_check;
     s_node  *current;
-    int i;
-    //int stack_size;
 
-    //stack_size = 0;
+    if (!stack_head)
+        return (0);
     current = stack_head;
-    while (current->next)
+    stack_size = 0;
+    while (current)
     {
         i = 0;
-        next_to_check = current->next;
-        while (next_to_check->next)
+        next_to_check = stack_head;
+        stack_size++;
+        while (next_to_check)
         {
             if (current->value > next_to_check->value)
                 i++;
             next_to_check = next_to_check->next;
         }
         current->index = i;
-        current = current->next;    
+        current = current->next;
     }
+    return (stack_size);
 }
