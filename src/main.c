@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 20:48:18 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/30 20:53:33 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ int main(int argc, char **argv)
     }
     //testing
     int max_index = stack_size - 1;
+    int temp = max_index;
     printf("\nMAX_INDEX IS %i\n", max_index);
     
     int bits_needed = 0;
-    while (max_index >> 1)
+    while (temp != 0)
     {
         bits_needed++;
+        temp = temp >> 1;
         //printf("\nBITS_NEEDED %i\n", bits_needed);
     }
     printf("\n WE NEED %i BITS\n", bits_needed);

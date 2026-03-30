@@ -9,3 +9,5 @@ The top pointer is updated to piont to this new node.
 AI Usage
 - making a road map for the project
 - and checking the pit falls
+
+RADIX based on LSB(Least Significant Bite)

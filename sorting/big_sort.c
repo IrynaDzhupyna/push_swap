@@ -8,9 +8,10 @@ int bits_counter(int max_index)
 
     temp = max_index;
     bits_needed = 0;
-    while ((temp >> 1) != 0)
+    while (temp != 0)
     {
         bits_needed++;
+        temp = temp >> 1;
     }
     return (bits_needed);
 }
