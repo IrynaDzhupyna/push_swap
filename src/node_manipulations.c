@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:05:42 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 14:04:35 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/30 12:24:43 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,24 @@ s_node  *smallest_node(s_node *stack_head)
         current = current->next;
     }
     return (min);
+}
+
+void    node_indexation(s_node *new_node, s_node *stack_head)
+{
+    s_node  *temp;
+    int i;
+    
+    if (!stack_head)
+        return ;
+    temp = stack_head;
+    i = 1;
+    while (temp->next)
+    {
+        if (temp->value > new_node->value)
+        {
+            temp->index = i;
+            i++;
+            temp = temp->next;  
+        }
+    }
 }

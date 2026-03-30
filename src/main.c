@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 18:10:23 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/03/30 13:33:51 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,21 @@ int main(int argc, char **argv)
         return (error_exit("Problem in parse_args\n"));
     if (stack_is_sorted(stack_a))
         return (free_stack(stack_a), 0);
-    
+    //printf("HERE is ok");
+    set_indexes(stack_a);
+    //print_stack(stack_a);
     stack_size = node_counter(stack_a);
     if (stack_size <= 5)
     {
         small_sort(&stack_a, &stack_b, stack_size);
     }
-    else
-        big_sort(&stack_a, &stack_b, stack_size );
+   // else
+     //   big_sort(&stack_a, &stack_b, stack_size );
     printf("\nFINAL STACK A IS:\n");
     print_stack(stack_a);
     printf("\nFINAL STACK B IS:\n");
     print_stack(stack_b);
     if (argc == 2)
-        free(arr); 
+        free(arr);
     return (0);
 }

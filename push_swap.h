@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 18:09:23 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/03/30 13:33:26 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void    find_push_smallest(s_node **stack_head_a, s_node **stack_head_b);
 //int     stack_isEmpty(s_node *top);
 int     stack_is_sorted(s_node *stack_head);
 void    free_stack(s_node *stack_head);
+void    set_indexes(s_node *stack_head);
 
 void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size);

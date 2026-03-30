@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 11:57:49 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 13:43:51 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/30 13:33:34 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void    print_stack(s_node *stack_head)
     temp = stack_head;
     while (temp)
     {
-        printf("Node %d is %d\n", i, temp->value);
+        printf("Node %d value is %d index is %d\n", i, temp->value, temp->index);
         i++;
         temp = temp->next;
     }
@@ -50,4 +50,28 @@ void    free_stack(s_node *stack_head)
         return ;
     free_stack(stack_head->next);
     free(stack_head);
+}
+
+void    set_indexes(s_node *stack_head)
+{
+    s_node  *next_to_check;
+    s_node  *current;
+    int i;
+    //int stack_size;
+
+    //stack_size = 0;
+    current = stack_head;
+    while (current->next)
+    {
+        i = 0;
+        next_to_check = current->next;
+        while (next_to_check->next)
+        {
+            if (current->value > next_to_check->value)
+                i++;
+            next_to_check = next_to_check->next;
+        }
+        current->index = i;
+        current = current->next;    
+    }
 }
