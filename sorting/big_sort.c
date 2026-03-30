@@ -1,25 +1,133 @@
 
-#include "push_swap.h"
+/*#include "push_swap.h"
 
-void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
+int bits_counter(int max_index)
+{
+    int bits_needed;
+    int temp;
+
+    temp = max_index;
+    bits_needed = 0;
+    while ((temp >> 1) != 0)
+    {
+        bits_needed++;
+    }
+    return (bits_needed);
+}
+
+void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int stack_size)
+{
+    int max_index;
+    int bits_needed;
+
+    max_index = stack_size - 1;
+    bits_needed = bit_counter(max_index);
+    printf("WE NEED %i BITS", bits_needed);
+
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int stack_size)
 {
     int i;
     int j;
-    int max_bits;
-    int num;
+    int bits_needed;
+    int max_index;
 
     i = 0;
-    max_bits = 0;
-    num = size - 1;
-    while ((num >> max_bits) != 0)
-        max_bits++;
-    while (i < max_bits)
+    bits_needed = 0;
+    max_index = stack_size - 1;
+    while ((max_index >> bits_needed) != 0)
+        bits_needed++;
+    while (i < bits_needed)
     {
         j = 0;
-        while (j < size)
+        while (j < stack_size)
         {
-            num = (*stack_head_a)->index;
-            if (((num >> i) & 1) == 1)
+            max_index = (*stack_head_a)->index;
+            if (((max_index >> i) & 1) == 1)
                 ra(stack_head_a);
             else
                 pb(stack_head_a, stack_head_b);
@@ -32,4 +140,4 @@ void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
         }
         i++;
     }
-}
+}*/

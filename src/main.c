@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 13:44:52 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/30 20:48:18 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main(int argc, char **argv)
     
     stack_a = NULL;
     stack_b = NULL;
+    
     if (argc < 2 || str_only_spaces(argv[1]))
         return (error_exit("Not enough arguments\n"));
     else if (argc == 2)
@@ -47,17 +48,24 @@ int main(int argc, char **argv)
         return (error_exit("Problem in parse_args\n"));
     if (stack_is_sorted(stack_a))
         return (free_stack(stack_a), 0);
-    //printf("HERE is ok");
+    
     stack_size = set_indexes(stack_a);
     printf("\nStack_size is %i\n", stack_size);
-    //print_stack(stack_a);
-    //stack_size = node_counter(stack_a);
     if (stack_size <= 5)
     {
         small_sort(&stack_a, &stack_b, stack_size);
     }
-   // else
-     //   big_sort(&stack_a, &stack_b, stack_size );
+    //testing
+    int max_index = stack_size - 1;
+    printf("\nMAX_INDEX IS %i\n", max_index);
+    
+    int bits_needed = 0;
+    while (max_index >> 1)
+    {
+        bits_needed++;
+        //printf("\nBITS_NEEDED %i\n", bits_needed);
+    }
+    printf("\n WE NEED %i BITS\n", bits_needed);
     printf("\nFINAL STACK A IS:\n");
     print_stack(stack_a);
     printf("\nFINAL STACK B IS:\n");
