@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/31 13:31:57 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 14:18:53 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,5 @@ int	main(int argc, char **argv)
 		big_sort(&stack_a, &stack_b, stack_size);
 	if (argc == 2)
 		free(arr);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	return (free_stack(stack_a), free_stack(stack_b), 0);
 }
