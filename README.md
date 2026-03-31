@@ -11,3 +11,9 @@ AI Usage
 - and checking the pit falls
 
 RADIX based on LSB(Least Significant Bite)
+
+Memory Leaks Check
+- make
+- valgrind --leak-check=full ./push_swap "3 2 1"
+or
+- valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./push_swap "3 2 1"

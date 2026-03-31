@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:05:42 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 13:46:46 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 13:15:27 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ s_node  *new_node_create(int *num)
     new_node->value = *num;
     new_node->index = 0;
     new_node->next = NULL;
-    new_node->prev = NULL;
     return (new_node);
 }
 
@@ -41,7 +40,6 @@ void    node_add_back(s_node **stack, s_node *new_node)
     while (temp->next)
         temp = temp->next;
     temp->next = new_node;
-    new_node->prev = temp;
 }
 
 int get_node_position(s_node *stack_head, s_node *target_node)

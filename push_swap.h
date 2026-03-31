@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/31 10:17:13 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 13:25:40 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct node
     int value;
     int index;
     struct node *next;
-    struct node *prev;
 }   s_node;
 
 int     parse_args(int argc, char **argv, s_node **stack_a);

@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:11:34 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/18 11:47:42 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 12:36:35 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	arr = malloc((ft_counter(s, c) + 1) * sizeof(*arr));
 	if (!arr)
-		return (NULL);
+		return (free(arr), NULL);
 	i = 0;
 	j = 0;
 	while (j < ft_counter(s, c))
