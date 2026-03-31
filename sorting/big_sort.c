@@ -46,9 +46,21 @@ void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int stack_size)
         {
             num = (*stack_head_a)->index;
             if (((num >> i) & 1) == 1)
+            {
                 ra(stack_head_a);
+                /*printf("\nSTACK A IS:\n");
+                print_stack(*stack_head_a);
+                printf("\nSTACK B IS:\n");
+                print_stack(*stack_head_b);*/
+            }
             else
+            {
                 pb(stack_head_a, stack_head_b);
+                /*printf("\nSTACK A IS:\n");
+                print_stack(*stack_head_a);
+                printf("\nSTACK B IS:\n");
+                print_stack(*stack_head_b);*/
+            }
             j++; 
         }
         while (*stack_head_b)

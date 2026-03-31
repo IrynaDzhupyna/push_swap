@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:49:52 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/24 15:56:59 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:02:13 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void    pa(s_node **stack_head_a, s_node **stack_head_b)
 void    pb(s_node **stack_head_a, s_node **stack_head_b)
 {
     if (!*stack_head_a)
+    {
+        printf("NO STACK_A\n");
         return ;
+    }
     push(stack_head_b, stack_head_a);
     write(1, "pb\n", 3);
 }

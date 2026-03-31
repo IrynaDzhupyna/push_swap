@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 20:53:33 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:04:20 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,16 @@ int main(int argc, char **argv)
         return (free_stack(stack_a), 0);
     
     stack_size = set_indexes(stack_a);
-    printf("\nStack_size is %i\n", stack_size);
+    //printf("\nStack_size is %i\n", stack_size);
     if (stack_size <= 5)
-    {
         small_sort(&stack_a, &stack_b, stack_size);
-    }
-    //testing
-    int max_index = stack_size - 1;
-    int temp = max_index;
-    printf("\nMAX_INDEX IS %i\n", max_index);
-    
-    int bits_needed = 0;
-    while (temp != 0)
-    {
-        bits_needed++;
-        temp = temp >> 1;
-        //printf("\nBITS_NEEDED %i\n", bits_needed);
-    }
-    printf("\n WE NEED %i BITS\n", bits_needed);
-    printf("\nFINAL STACK A IS:\n");
+    else
+        big_sort(&stack_a, &stack_b, stack_size);
+
+    /*printf("\nFINAL STACK A IS:\n");
     print_stack(stack_a);
     printf("\nFINAL STACK B IS:\n");
-    print_stack(stack_b);
+    print_stack(stack_b);*/
     if (argc == 2)
         free(arr);
     return (0);
