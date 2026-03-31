@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 20:28:12 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/03/31 10:17:13 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int    set_indexes(s_node *stack_head);
 
 void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
 void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int size);
+int bits_counter(int max_index);
 
 void    sort_three(s_node **stack_head__a);
 void    sort_four(s_node **stack_head_a, s_node **stack_head_b);

@@ -1,7 +1,7 @@
 
-/*#include "push_swap.h"
+#include "push_swap.h"
 
-int bits_counter(int max_index)
+/*int bits_counter(int max_index)
 {
     int bits_needed;
     int temp;
@@ -14,20 +14,48 @@ int bits_counter(int max_index)
         temp = temp >> 1;
     }
     return (bits_needed);
+}*/
+
+int bits_counter(int max_index)
+{
+    int bits;
+
+    bits = 0;
+    while ((max_index >> bits) != 0)
+    {
+        bits++;
+    }
+        return (bits);
 }
 
 void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int stack_size)
 {
     int max_index;
     int bits_needed;
+    int num;
+    int i;
+    int j;
 
     max_index = stack_size - 1;
-    bits_needed = bit_counter(max_index);
-    printf("WE NEED %i BITS", bits_needed);
-
-
+    bits_needed = bits_counter(max_index);
+    i = 0;
+    while (i < bits_needed)
+    {
+        j = 0;
+        while (j < stack_size)
+        {
+            num = (*stack_head_a)->index;
+            if (((num >> i) & 1) == 1)
+                ra(stack_head_a);
+            else
+                pb(stack_head_a, stack_head_b);
+            j++; 
+        }
+        while (*stack_head_b)
+            pa(stack_head_a, stack_head_b);
+        i++;
+    }
 }
-*/
 
 
 
