@@ -6,16 +6,16 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 18:40:32 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 21:19:24 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int error_exit(char *s)
+int	error_exit(char *s)
 {
-    write(2, s, ft_strlen(s));
-    return (1);
+	write(2, s, ft_strlen(s));
+	return (1);
 }
 
 static int	str_only_spaces(char *str)
@@ -62,14 +62,9 @@ int	main(int argc, char **argv)
 		else
 			big_sort(&stack_a, &stack_b, stack_size);
 	}
-	/*printf("\nSTACK_A\n");
-	print_stack(stack_a);
-	printf("\nSTACK B\n");
-	print_stack(stack_b);*/
 	free_stack(stack_a);
 	free_stack(stack_b);
 	if (argc == 2)
 		free(arr);
 	return (0);
 }
-
