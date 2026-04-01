@@ -6,16 +6,16 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:54:56 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 13:46:58 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:37:52 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //unused
-int     node_counter(s_node *stack_head)
+/*int     node_counter(t_node *stack_head)
 {
     int i;
-    s_node  *current;
+    t_node  *current;
     
     i = 0;
     current = stack_head;
@@ -24,5 +24,15 @@ int     node_counter(s_node *stack_head)
         current = current->next;
         i++;
     }
+    return (i);
+}*/
+
+int  ft_strlen(const char *s)
+{
+    int i;
+
+    i = 0;
+    while (s[i])
+        i++;
     return (i);
 }

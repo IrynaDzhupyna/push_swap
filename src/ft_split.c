@@ -6,21 +6,11 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:11:34 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/31 12:36:35 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:37:35 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int  ft_strlen(const char *s)
-{
-    int i;
-
-    i = 0;
-    while (s[i])
-        i++;
-    return (i);
-}
 
 static char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

@@ -29,7 +29,6 @@ ALG_DIR		:= sorting
 
 SRCS	= $(SRC_DIR)/main.c\
 		  $(SRC_DIR)/parse_args.c\
-		  $(SRC_DIR)/error.c\
 		  $(SRC_DIR)/node_manipulations.c\
 		  $(SRC_DIR)/stack_utils.c\
 		  $(SRC_DIR)/utils.c\

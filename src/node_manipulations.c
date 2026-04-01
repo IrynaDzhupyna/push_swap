@@ -6,17 +6,17 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:05:42 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/31 13:15:27 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:54:33 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-s_node  *new_node_create(int *num)
+t_node  *new_node_create(int *num)
 {
-    s_node  *new_node;
+    t_node  *new_node;
     
-    new_node = malloc(sizeof(s_node));
+    new_node = malloc(sizeof(t_node));
     if (!new_node)
         return (NULL);
     new_node->value = *num;
@@ -25,9 +25,9 @@ s_node  *new_node_create(int *num)
     return (new_node);
 }
 
-void    node_add_back(s_node **stack, s_node *new_node)
+void    node_add_back(t_node **stack, t_node *new_node)
 {
-    s_node  *temp;
+    t_node  *temp;
 
     if (!stack || !new_node)
         return ;
@@ -42,7 +42,7 @@ void    node_add_back(s_node **stack, s_node *new_node)
     temp->next = new_node;
 }
 
-int get_node_position(s_node *stack_head, s_node *target_node)
+int get_node_position(t_node *stack_head, t_node *target_node)
 {
     int i;
 
@@ -57,25 +57,9 @@ int get_node_position(s_node *stack_head, s_node *target_node)
     return (-1);
 }
 
-s_node  *smallest_node(s_node *stack_head)
+void    node_indexation(t_node *new_node, t_node *stack_head)
 {
-    s_node  *min;
-    s_node  *current;
-
-    current = stack_head;
-    min = stack_head;
-    while (current)
-    {
-        if (current->value < min->value)
-            min = current;
-        current = current->next;
-    }
-    return (min);
-}
-
-void    node_indexation(s_node *new_node, s_node *stack_head)
-{
-    s_node  *temp;
+    t_node  *temp;
     int i;
     
     if (!stack_head)

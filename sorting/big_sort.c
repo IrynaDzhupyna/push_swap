@@ -28,7 +28,7 @@ int bits_counter(int max_index)
         return (bits);
 }
 
-void    big_sort(s_node **stack_head_a, s_node **stack_head_b, int stack_size)
+void    big_sort(t_node **stack_head_a, t_node **stack_head_b, int stack_size)
 {
     int max_index;
     int bits_needed;

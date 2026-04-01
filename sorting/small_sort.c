@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 17:54:42 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 20:36:00 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,19 @@ void    find_push_smallest(t_node **stack_head_a, t_node **stack_head_b)
 
     min_node = smallest_node(*stack_head_a);
     index_smallest = get_node_position(*stack_head_a, min_node);
-    while (*stack_head_a != min_node)
+    if (*stack_head_a == min_node)
+        pb(stack_head_a, stack_head_b);
+    else
     {
-        if (index_smallest <= 2)
-            ra(stack_head_a);
-        else
-            rra(stack_head_a);
+        while (*stack_head_a != min_node)
+        {
+            if (index_smallest <= 2)
+                ra(stack_head_a);
+            else
+                rra(stack_head_a);
+        }
+        pb(stack_head_a, stack_head_b);  
     }
-    pa(stack_head_b, stack_head_a);
 }
 
 void	sort_three(t_node **stack_head)

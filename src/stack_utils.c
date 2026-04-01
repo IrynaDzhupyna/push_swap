@@ -6,18 +6,15 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 11:57:49 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/30 13:44:04 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:59:38 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//return:
-// 1 if sorted
-// 0 if not
-int     stack_is_sorted(s_node *stack_head)
+int     stack_is_sorted(t_node *stack_head)
 {
-    s_node  *current;
+    t_node  *current;
 
     current = stack_head;
     while (current->next)
@@ -29,22 +26,7 @@ int     stack_is_sorted(s_node *stack_head)
     return (1);
 }
 
-void    print_stack(s_node *stack_head)
-{
-    int i;
-    s_node  *temp;
-    
-    i = 0;
-    temp = stack_head;
-    while (temp)
-    {
-        printf("Node %d value is %d index is %d\n", i, temp->value, temp->index);
-        i++;
-        temp = temp->next;
-    }
-}
-
-void    free_stack(s_node *stack_head)
+void    free_stack(t_node *stack_head)
 {
     if (!stack_head)
         return ;
@@ -52,12 +34,12 @@ void    free_stack(s_node *stack_head)
     free(stack_head);
 }
 
-int    set_indexes(s_node *stack_head)
+int    set_indexes(t_node *stack_head)
 {
     int i;
     int stack_size;
-    s_node  *next_to_check;
-    s_node  *current;
+    t_node  *next_to_check;
+    t_node  *current;
 
     if (!stack_head)
         return (0);
@@ -78,4 +60,19 @@ int    set_indexes(s_node *stack_head)
         current = current->next;
     }
     return (stack_size);
+}
+
+void    print_stack(t_node *stack_head)
+{
+    int i;
+    t_node  *temp;
+    
+    i = 0;
+    temp = stack_head;
+    while (temp)
+    {
+        printf("Node %d value is %d index is %d\n", i, temp->value, temp->index);
+        i++;
+        temp = temp->next;
+    }
 }
