@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/31 14:18:53 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 13:01:13 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc < 2 || str_only_spaces(argv[1]))
+	if (argc < 2)
 		return (1);
+	else if (str_only_spaces(argv[1]))
+		return (error_exit("Error\n"));
 	else if (argc == 2)
 		arr = ft_split(argv[1], ' ');
 	else
@@ -54,3 +56,8 @@ int	main(int argc, char **argv)
 		free(arr);
 	return (free_stack(stack_a), free_stack(stack_b), 0);
 }
+
+/*printf("\nSTACK_A\n");
+	print_stack(stack_a);
+	printf("\nSTACK B\n");
+	print_stack(stack_b);*/

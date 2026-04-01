@@ -6,16 +6,32 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/03/25 12:49:29 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/01 17:54:42 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-void    find_push_smallest(s_node **stack_head_a, s_node **stack_head_b)
+t_node  *smallest_node(t_node *stack_head)
 {
-    s_node  *min_node;
+    t_node  *min;
+    t_node  *current;
+
+    current = stack_head;
+    min = stack_head;
+    while (current)
+    {
+        if (current->value < min->value)
+            min = current;
+        current = current->next;
+    }
+    return (min);
+}
+
+void    find_push_smallest(t_node **stack_head_a, t_node **stack_head_b)
+{
+    t_node  *min_node;
     int     index_smallest;
 
     min_node = smallest_node(*stack_head_a);
@@ -30,45 +46,53 @@ void    find_push_smallest(s_node **stack_head_a, s_node **stack_head_b)
     pa(stack_head_b, stack_head_a);
 }
 
-void	sort_three(s_node **stack_head)
+void	sort_three(t_node **stack_head)
 {
-	s_node	*first;
-	s_node	*second;
-	s_node	*third;
+	t_node	*first;
+	t_node	*second;
+	t_node	*third;
 
 	if (!stack_head || !*stack_head || !(*stack_head)->next || !(*stack_head)->next->next)
 		return ;
 	first = *stack_head;
 	second = first->next;
 	third = second->next;
+    //123
 	if (first->value < second->value && second->value < third->value)
 		return ;
+    //213
 	if (first->value > second->value && second->value < third->value && first->value < third->value)
 		sa(stack_head);
+    //321
 	else if (first->value > second->value && second->value > third->value)
 	{ 
         sa(stack_head);
         rra(stack_head);
     }
+    //213
 	else if (first->value > second->value && second->value < third->value && first->value > third->value)
 		ra(stack_head);
+    //132
 	else if (first->value < second->value && second->value > third->value && first->value < third->value)
 	{ 
         sa(stack_head);
         ra(stack_head);
     }
-	else
-		reverse_rotate(stack_head);
+    //231
+    else if (first->value < second->value && second->value > third->value && first->value > third->value)
+        rra(stack_head);
+    //else
+	//	reverse_rotate(stack_head);
 }
 
-void    sort_four(s_node **stack_head_a, s_node **stack_head_b)
+void    sort_four(t_node **stack_head_a, t_node **stack_head_b)
 {   
     find_push_smallest(stack_head_a, stack_head_b);
     sort_three(stack_head_a);
     pa(stack_head_a, stack_head_b);
 }
 
-void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
+void	sort_five(t_node **stack_head_a, t_node **stack_head_b)
 {   
     find_push_smallest(stack_head_a, stack_head_b);
     find_push_smallest(stack_head_a, stack_head_b);
@@ -103,7 +127,7 @@ void	sort_five(s_node **stack_head_a, s_node **stack_head_b)
     }
 }*/
 
-void    small_sort(s_node **stack_head_a, s_node **stack_head_b, int size)
+void    small_sort(t_node **stack_head_a, t_node **stack_head_b, int size)
 {
         if (size < 2)
         return ;
