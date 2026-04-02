@@ -1,26 +1,22 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::  #
-#    Makefile                                           :+:      :+:    :+:  #
-#                                                     +:+ +:+         +:+    #
-#    By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+       #
-#                                                 +#+#+#+#+#+   +#+          #
-#    Created: 2026/03/11 14:00:00 by idzhup            #+#    #+#            #
-#    Updated: 2026/03/11 14:00:00 by idzhup           ###   ########.fr      #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/04/02 18:23:20 by irdzhupy          #+#    #+#              #
+#    Updated: 2026/04/02 18:23:48 by irdzhupy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Target executable
-NAME    := push_swap
 
-# Header
+NAME    := push_swap
 HEADER  := push_swap.h
 
-# Compiler and flags
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
 
-# Source files
 INCLUDES	:= -I.
 
 SRC_DIR		:= src
@@ -37,19 +33,17 @@ SRCS	= $(SRC_DIR)/main.c\
 		  $(OP_DIR)/push.c\
 		  $(OP_DIR)/rotate.c\
 		  $(OP_DIR)/reverse_rotate.c\
+		  $(ALG_DIR)/big_sort.c\
 		  $(ALG_DIR)/small_sort.c\
-		  $(ALG_DIR)/big_sort.c
+		  $(ALG_DIR)/small_sort_utils.c
 
 OBJS    := $(SRCS:.c=.o)
 
-# Default rule
 all: $(NAME)
 
-# Link objects into executable
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
 
-# Pattern rule for compiling .c -> .o
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
@@ -61,5 +55,4 @@ fclean: clean
 
 re: fclean all
 
-# Phony targets
 .PHONY: all clean fclean re
