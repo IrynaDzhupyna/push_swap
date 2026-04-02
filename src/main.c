@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 21:19:24 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 10:38:09 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,22 @@ static int	str_only_spaces(char *str)
 	return (1);
 }
 
+void	sorting(t_node **stack_a, t_node **stack_b)
+{
+	int	stack_size;
+
+	stack_size = set_indexes(*stack_a);
+	if (stack_size <= 5)
+		small_sort(stack_a, stack_b, stack_size);
+	else
+		big_sort(stack_a, stack_b, stack_size);
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	char	**arr;
-	int		stack_size;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -50,21 +60,17 @@ int	main(int argc, char **argv)
 	else
 		arr = argv;
 	if (!parse_args(argc, arr, &stack_a))
-	{
-		free_stack(stack_a);
-		return (error_exit("Error\n"));
-	}
+		return (free_stack(stack_a), error_exit("Error\n"));
 	if (!(stack_is_sorted(stack_a)))
-	{
-		stack_size = set_indexes(stack_a);
-		if (stack_size <= 5)
-			small_sort(&stack_a, &stack_b, stack_size);
-		else
-			big_sort(&stack_a, &stack_b, stack_size);
-	}
-	free_stack(stack_a);
-	free_stack(stack_b);
+		sorting(&stack_a, &stack_b);
 	if (argc == 2)
 		free(arr);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }
+
+/*printf("\nSTACK A\n");
+	print_stack(stack_a);
+	printf("\nSTACK B\n");
+	print_stack(stack_b);*/

@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 21:31:46 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 10:50:32 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,40 +50,35 @@ void	find_push_smallest(t_node **stack_head_a, t_node **stack_head_b)
 	}
 }
 
-void	sort_three(t_node **stack_head)
+void	sort_three(t_node **stack)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*third;
+	t_node	*a;
+	t_node	*b;
+	t_node	*c;
 
-	if (!stack_head || !*stack_head || !(*stack_head)->next
-		|| !(*stack_head)->next->next)
+	if (!stack || !*stack || !(*stack)->next || !(*stack)->next->next)
 		return ;
-	first = *stack_head;
-	second = first->next;
-	third = second->next;
-	if (first->value < second->value && second->value < third->value)
+	a = *stack;
+	b = a->next;
+	c = b->next;
+	if (a->value < b->value && b->value < c->value)
 		return ;
-	if (first->value > second->value && second->value < third->value
-		&& first->value < third->value)
-		sa(stack_head);
-	else if (first->value > second->value && second->value > third->value)
+	if (a->value > b->value && b->value < c->value && a->value < c->value)
+		sa(stack);
+	else if (a->value > b->value && b->value > c->value)
 	{
-		sa(stack_head);
-		rra(stack_head);
+		sa(stack);
+		rra(stack);
 	}
-	else if (first->value > second->value && second->value < third->value
-		&& first->value > third->value)
-		ra(stack_head);
-	else if (first->value < second->value && second->value > third->value
-		&& first->value < third->value)
+	else if (a->value > b->value && b->value < c->value && a->value > c->value)
+		ra(stack);
+	else if (a->value < b->value && b->value > c->value && a->value < c->value)
 	{
-		sa(stack_head);
-		ra(stack_head);
+		sa(stack);
+		ra(stack);
 	}
-	else if (first->value < second->value && second->value > third->value
-		&& first->value > third->value)
-		rra(stack_head);
+	else if (a->value < b->value && b->value > c->value && a->value > c->value)
+		rra(stack);
 }
 
 void	sort_four(t_node **stack_head_a, t_node **stack_head_b)
