@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 15:37:41 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:48:46 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int	str_only_spaces(char *str)
 {
 	int	i;
 
-	if (!str)
-		return (0);
 	i = 0;
-	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+	while (str[i])
+	{
+		if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
+		{
+			return (0);
+		}
 		i++;
-	if (str[i] == '\0')
-		return (0);
-	if ((str[i] == '+' || str[i] == '-') && str[i + 1] == '\0')
-		return (0);
+	}
 	return (1);
 }
 
@@ -57,16 +57,20 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (str_only_spaces(argv[1]))
 		return (error_exit("Error\n"));
-	else if (argc == 2 && argv[1])
+	else if (argc == 2)
 		arr = ft_split(argv[1], ' ');
 	else
 		arr = argv;
 	if (!parse_args(argc, arr, &stack_a))
+	{
+		if (argc == 2)
+			free_split(arr);
 		return (free_stack(stack_a), error_exit("Error\n"));
+	}
 	if (!(stack_is_sorted(stack_a)))
 		choose_sorting(&stack_a, &stack_b);
 	if (argc == 2)
-		free(arr);
+		free_split(arr);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

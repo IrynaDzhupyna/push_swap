@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 13:11:34 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:42:54 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 17:45:01 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ static size_t	ft_word_len(char const *s, char c)
 static void	ft_free_split(char **arr, size_t filled)
 {
 	while (filled > 0)
-		free(arr[filled--]);
+	{
+		filled--;
+		free(arr[filled]);
+	}
 	free(arr);
 }
 
@@ -89,7 +92,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	arr = malloc((ft_counter(s, c) + 1) * sizeof(*arr));
 	if (!arr)
-		return (free(arr), NULL);
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (j < ft_counter(s, c))
