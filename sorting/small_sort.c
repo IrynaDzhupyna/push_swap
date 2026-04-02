@@ -6,27 +6,11 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 12:03:23 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 10:50:32 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 11:23:45 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_node	*smallest_node(t_node *stack_head)
-{
-	t_node	*min;
-	t_node	*current;
-
-	current = stack_head;
-	min = stack_head;
-	while (current)
-	{
-		if (current->value < min->value)
-			min = current;
-		current = current->next;
-	}
-	return (min);
-}
 
 void	find_push_smallest(t_node **stack_head_a, t_node **stack_head_b)
 {
