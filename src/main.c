@@ -6,17 +6,13 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:43:18 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:56:23 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_exit(char *s)
-{
-	write(2, s, ft_strlen(s));
-	return (1);
-}
+
 
 static int	str_only_spaces(char *str)
 {
