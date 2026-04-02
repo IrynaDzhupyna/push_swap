@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 10:08:57 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 17:30:38 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 11:14:01 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	get_int(char *s, int *n)
 	}
 	if (!(48 <= s[i] && s[i] <= 57))
 		return (0);
+	limit = 2147483647;
 	if (sign == -1)
 		limit = 2147483648;
-	else
-		limit = 2147483647;
 	while (48 <= s[i] && s[i] <= 57)
 	{
 		if (num > (limit - (s[i] - 48)) / 10)
