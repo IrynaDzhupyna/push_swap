@@ -3,26 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 10:08:57 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 11:14:01 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 11:19:46 by idzhup           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_int(char *s, int *n)
+static int	parse_digits(char *s, int i, int sign, int *n)
 {
-	int			i;
-	int			sign;
 	long long	num;
 	long long	limit;
 
+	num = 0;
+	limit = 2147483647;
+	if (sign == -1)
+		limit = 2147483648;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		if (num > (limit - (s[i] - '0')) / 10)
+			return (0);
+		num = num * 10 + (s[i++] - '0');
+	}
+	if (s[i] != '\0')
+		return (0);
+	*n = (int)(num * sign);
+	return (1);
+}
+
+int	get_int(char *s, int *n)
+{
+	int	i;
+	int	sign;
+
 	i = 0;
 	sign = 1;
-	num = 0;
-	while ((9 <= s[i] && s[i] <= 13) || s[i] == 32)
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
 		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
@@ -30,21 +48,9 @@ int	get_int(char *s, int *n)
 			sign = -1;
 		i++;
 	}
-	if (!(48 <= s[i] && s[i] <= 57))
+	if (s[i] < '0' || s[i] > '9')
 		return (0);
-	limit = 2147483647;
-	if (sign == -1)
-		limit = 2147483648;
-	while (48 <= s[i] && s[i] <= 57)
-	{
-		if (num > (limit - (s[i] - 48)) / 10)
-			return (0);
-		num = num * 10 + (s[i++] - 48);
-	}
-	if (s[i] != '\0')
-		return (0);
-	*n = sign * num;
-	return (1);
+	return (parse_digits(s, i, sign, n));
 }
 
 int	check_duplicates(t_node *stack_head, int *num)
