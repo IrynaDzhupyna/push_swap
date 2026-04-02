@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 15:12:48 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 15:24:51 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ int	str_only_spaces(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!('0' <= str[i]  && str[i] <= '9'))
+		return (0);
+		
+	
 	{
 		if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
 			return (0);
@@ -31,6 +38,23 @@ int	str_only_spaces(char *str)
 	}
 	return (1);
 }
+
+/*int	str_only_spaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
+		{
+			if (str[i] == '+' || str[i] == '-')
+				
+		}
+		i++;
+	}
+	return (1);
+}*/
 
 void	choose_sorting(t_node **stack_a, t_node **stack_b)
 {
