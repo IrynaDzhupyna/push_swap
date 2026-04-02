@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:20:44 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:43:33 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ void			find_push_smallest(t_node **stack_head_a,
 
 int				stack_is_sorted(t_node *stack_head);
 void			free_stack(t_node *stack_head);
+//void			ft_free_split(char **arr, size_t filled);
 int				set_indexes(t_node *stack_head);
 
-void			sorting(t_node **stack_a, t_node **stack_b);
+void			choose_sorting(t_node **stack_a, t_node **stack_b);
 void			small_sort(t_node **stack_head_a, t_node **stack_head_b,
 					int size);
 void			big_sort(t_node **stack_head_a, t_node **stack_head_b,
@@ -50,8 +51,10 @@ void			big_sort(t_node **stack_head_a, t_node **stack_head_b,
 int				bits_counter(int max_index);
 
 void			sort_three(t_node **stack_head__a);
-void			sort_three_low_first(t_node **stack, t_node *a, t_node *b, t_node *c);
-void			sort_three_high_first(t_node **stack, t_node *a, t_node *b, t_node *c);
+void			sort_three_low_first(t_node **stack, t_node *a, t_node *b,
+					t_node *c);
+void			sort_three_high_first(t_node **stack, t_node *a, t_node *b,
+					t_node *c);
 void			sort_four(t_node **stack_head_a, t_node **stack_head_b);
 void			sort_five(t_node **stack_head_a, t_node **stack_head_b);
 

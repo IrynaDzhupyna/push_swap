@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 10:38:09 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:43:18 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	str_only_spaces(char *str)
 	return (1);
 }
 
-void	sorting(t_node **stack_a, t_node **stack_b)
+void	choose_sorting(t_node **stack_a, t_node **stack_b)
 {
 	int	stack_size;
 
@@ -62,15 +62,10 @@ int	main(int argc, char **argv)
 	if (!parse_args(argc, arr, &stack_a))
 		return (free_stack(stack_a), error_exit("Error\n"));
 	if (!(stack_is_sorted(stack_a)))
-		sorting(&stack_a, &stack_b);
+		choose_sorting(&stack_a, &stack_b);
 	if (argc == 2)
 		free(arr);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
 }
-
-/*printf("\nSTACK A\n");
-	print_stack(stack_a);
-	printf("\nSTACK B\n");
-	print_stack(stack_b);*/

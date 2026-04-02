@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 11:57:49 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/01 21:26:01 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:30:52 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,28 @@ int	set_indexes(t_node *stack_head)
 	return (stack_size);
 }
 
-void	print_stack(t_node *stack_head)
+void	find_push_smallest(t_node **stack_head_a, t_node **stack_head_b)
+{
+	t_node	*min_node;
+	int		index_smallest;
+
+	min_node = smallest_node(*stack_head_a);
+	index_smallest = get_node_position(*stack_head_a, min_node);
+	if (*stack_head_a == min_node)
+		pb(stack_head_a, stack_head_b);
+	else
+	{
+		while (*stack_head_a != min_node)
+		{
+			if (index_smallest <= 2)
+				ra(stack_head_a);
+			else
+				rra(stack_head_a);
+		}
+		pb(stack_head_a, stack_head_b);
+	}
+}
+/*void	print_stack(t_node *stack_head)
 {
 	int		i;
 	t_node	*temp;
@@ -76,4 +97,4 @@ void	print_stack(t_node *stack_head)
 		i++;
 		temp = temp->next;
 	}
-}
+}*/
