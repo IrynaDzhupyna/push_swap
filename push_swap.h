@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 10:21:45 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 12:20:44 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int				get_node_position(t_node *stack_head, t_node *target_node);
 void			find_push_smallest(t_node **stack_head_a,
 					t_node **stack_head_b);
 
-// int     stack_isEmpty(s_node *top);
 int				stack_is_sorted(t_node *stack_head);
 void			free_stack(t_node *stack_head);
 int				set_indexes(t_node *stack_head);
@@ -51,6 +50,8 @@ void			big_sort(t_node **stack_head_a, t_node **stack_head_b,
 int				bits_counter(int max_index);
 
 void			sort_three(t_node **stack_head__a);
+void			sort_three_low_first(t_node **stack, t_node *a, t_node *b, t_node *c);
+void			sort_three_high_first(t_node **stack, t_node *a, t_node *b, t_node *c);
 void			sort_four(t_node **stack_head_a, t_node **stack_head_b);
 void			sort_five(t_node **stack_head_a, t_node **stack_head_b);
 
