@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 10:08:57 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 11:19:46 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/04/02 14:46:46 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	parse_digits(char *s, int i, int sign, int *n)
+int	parse_digits(char *s, int i, int sign, int *n)
 {
 	long long	num;
 	long long	limit;

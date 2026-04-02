@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 17:54:56 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:59:20 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/04/02 14:57:46 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,17 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-int	error_exit(char *s)
-{
-	write(2, s, ft_strlen(s));
-	return (1);
-}
-
-static int	str_only_spaces(char *str)
+void	free_split(char **arr)
 {
 	int	i;
 
+	if (!arr)
+		return ;
 	i = 0;
-	while (str[i])
+	while (arr[i])
 	{
-		if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
-			return (0);
+		free(arr[i]);
 		i++;
 	}
-	return (1);
+	free(arr);
 }

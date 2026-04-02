@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idzhup <idzhup@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:40:15 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:59:20 by idzhup           ###   ########.fr       */
+/*   Updated: 2026/04/02 15:12:48 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	error_exit(char *s)
+{
+	write(2, s, ft_strlen(s));
+	return (1);
+}
+
+int	str_only_spaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] == ' ' || (9 <= str[i] && str[i] <= 13)))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	choose_sorting(t_node **stack_a, t_node **stack_b)
 {
@@ -23,58 +43,7 @@ void	choose_sorting(t_node **stack_a, t_node **stack_b)
 		big_sort(stack_a, stack_b, stack_size);
 }
 
-static char	**init_args(int argc, char **argv, int *is_split)
-{
-	char	**arr;
-
-	if (argc == 2)
-	{
-		arr = ft_split(argv[1], ' ');
-		if (!arr)
-			return (NULL);
-		*is_split = 1;
-	}
-	else
-	{
-		arr = argv + 1;
-		*is_split = 0;
-	}
-	return (arr);
-}
-
-static void	cleanup(t_node *a, t_node *b, char **arr, int is_split)
-{
-	if (is_split)
-		free_split(arr);
-	free_stack(a);
-	free_stack(b);
-}
-
 int	main(int argc, char **argv)
-{
-	t_node	*stack_a;
-	t_node	*stack_b;
-	char	**arr;
-	int		is_split;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	arr = init_args(argc, argv, &is_split);
-	if (!arr)
-		return (error_exit("Error\n"));
-	if (!parse_args(argc, arr, &stack_a))
-	{
-		cleanup(stack_a, stack_b, arr, is_split);
-		return (error_exit("Error\n"));
-	}
-	if (!stack_is_sorted(stack_a))
-		choose_sorting(&stack_a, &stack_b);
-	cleanup(stack_a, stack_b, arr, is_split);
-	return (0);
-}
-
-
-/*int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
@@ -86,7 +55,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (str_only_spaces(argv[1]))
 		return (error_exit("Error\n"));
-	else if (argc == 2)
+	else if (argc == 2 && argv[1])
 		arr = ft_split(argv[1], ' ');
 	else
 		arr = argv;
@@ -99,4 +68,4 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
-}*/
+}

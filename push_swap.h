@@ -6,7 +6,7 @@
 /*   By: irdzhupy <irdzhupy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:50:36 by irdzhupy          #+#    #+#             */
-/*   Updated: 2026/04/02 12:43:33 by irdzhupy         ###   ########.fr       */
+/*   Updated: 2026/04/02 14:47:13 by irdzhupy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct node
 
 int				parse_args(int argc, char **argv, t_node **stack_a);
 int				get_int(char *s, int *n);
+int				parse_digits(char *s, int i, int sign, int *n);
 int				check_duplicates(t_node *stack_head, int *num);
 char			**ft_split(char const *s, char c);
 
@@ -40,7 +41,7 @@ void			find_push_smallest(t_node **stack_head_a,
 
 int				stack_is_sorted(t_node *stack_head);
 void			free_stack(t_node *stack_head);
-//void			ft_free_split(char **arr, size_t filled);
+void			free_split(char **arr);
 int				set_indexes(t_node *stack_head);
 
 void			choose_sorting(t_node **stack_a, t_node **stack_b);
@@ -84,4 +85,6 @@ void			pb(t_node **stack_head_a, t_node **stack_head_b);
 int				error_exit(char *s);
 int				ft_strlen(const char *s);
 void			print_stack(t_node *stack_head);
+int				str_only_spaces(char *str);
+
 #endif
